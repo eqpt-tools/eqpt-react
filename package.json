@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "name": "eqpt-react",
+  "description": "EQPT Tools React app",
+  "version": "1.0.0",
+  "author": "Connor Stevens",
+  "main": "app/background.js",
+  "scripts": {
+    "dev": "nextron",
+    "build": "nextron build",
+    "postinstall": "electron-builder install-app-deps",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@types/react-table": "^7.7.12",
+    "clsx": "^1.2.1",
+    "electron-serve": "^1.1.0",
+    "electron-store": "^8.1.0",
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "^13.0.6",
+    "formik": "^2.2.9",
+    "react-hot-toast": "^2.4.0",
+    "react-table": "^7.8.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/react": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "autoprefixer": "^10.4.7",
+    "electron": "^20.1.0",
+    "electron-builder": "^23.3.3",
+    "eslint-config-prettier": "^8.5.0",
+    "next": "^13.0.7",
+    "nextron": "^8.2.0",
+    "postcss": "^8.4.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.2"
+  }
+}
