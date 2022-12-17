@@ -6,7 +6,7 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  ignorePatterns: ['/app/**'],
+  ignorePatterns: ['/app/**', '/graphql/**'],
   extends: [
     'next',
     'plugin:react/recommended',
@@ -25,6 +25,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-unescaped-entities': 'off',
@@ -35,6 +36,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/interactive-supports-focus': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'no-underscore-dangle': 'off',
     'no-else-return': 'off',
     'no-param-reassign': 'off',
