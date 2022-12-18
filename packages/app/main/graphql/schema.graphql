@@ -1,0 +1,25 @@
+type Settings {
+  """
+  A string that represents a license key for this application
+  """
+  licenseKey: String
+
+  """
+  A string that represents a discord webhook used for notifications
+  """
+  discordWebhook: String
+}
+
+type Query {
+  """
+  Retrieve this application's settings
+  """
+  settings: Settings
+}
+
+type Mutation {
+  """
+  Authenticate using a license key
+  """
+  login(licenseKey: String!): Settings
+}
