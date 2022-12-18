@@ -1,0 +1,11 @@
+{
+  "name": "@local/data",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {},
+  "dependencies": {
+    "fs-extra": "^11.1.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {}
+}

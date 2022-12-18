@@ -6,7 +6,7 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  ignorePatterns: ['/app/**', '/graphql/**'],
+  ignorePatterns: ['packages/graphql/**'],
   extends: [
     'next',
     'plugin:react/recommended',
@@ -44,7 +44,7 @@ module.exports = {
     'import/extensions': 'off',
     'no-shadow': 'off',
     '@next/next/no-html-link-for-pages': ['error', 'renderer/pages'],
-    'operator-linebreak': ['error', 'after'],
+    'operator-linebreak': 'off',
     quotes: [2, 'single', { avoidEscape: true }],
     'react/jsx-indent': [
       'error',
