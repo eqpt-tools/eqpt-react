@@ -158,7 +158,7 @@ export default function Vault() {
 
   return (
     <AppLayout>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full">
         <PageTitle title="Vault" />
 
         <AppLayout.Scroll>

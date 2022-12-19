@@ -16,7 +16,10 @@ export default function Table<T extends object>({ columns, data }: Props<T>) {
     });
 
   return (
-    <table className="border-separate border-spacing-y-2" {...getTableProps()}>
+    <table
+      className="border-separate w-full border-spacing-y-2"
+      {...getTableProps()}
+    >
       <thead className="bg-[#1A1B24]">
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
@@ -26,10 +29,13 @@ export default function Table<T extends object>({ columns, data }: Props<T>) {
 
               return (
                 <th
-                  className={clsx('px-3 py-4 border border-transparent', {
-                    'rounded-l': isFirst,
-                    'rounded-r': isLast,
-                  })}
+                  className={clsx(
+                    'text-left px-3 py-4 border border-transparent',
+                    {
+                      'rounded-l': isFirst,
+                      'rounded-r': isLast,
+                    },
+                  )}
                   {...column.getHeaderProps()}
                 >
                   <Text weight="semibold">{column.render('Header')}</Text>

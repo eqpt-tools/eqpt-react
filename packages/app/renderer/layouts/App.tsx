@@ -9,7 +9,7 @@ function AppLayout({ children }: Props) {
   return (
     <div className="flex flex-grow min-h-screen select-none drag">
       <Navbar />
-      <div className="ml-52 flex min-w-max text-white p-10">{children}</div>
+      <div className="ml-52 flex w-full text-white p-10">{children}</div>
     </div>
   );
 }
