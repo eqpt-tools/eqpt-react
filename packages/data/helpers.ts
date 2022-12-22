@@ -40,14 +40,14 @@ const restoreDefaults = async function restoreDefaults<T>(
 };
 
 // A helper function that returns a function that reads data for a schema
-export function readFile<T>({
+export function readFile<T extends object>({
   fileName,
   defaultData,
   schema,
 }: {
   fileName: string;
   defaultData: object;
-  schema: any;
+  schema: { isValidSync: (data: object) => boolean };
 }) {
   return async function innerReadFile() {
     const filePath = getPath(fileName);
@@ -60,7 +60,7 @@ export function readFile<T>({
 
     try {
       const jsonData = JSON.parse(fileData) as T;
-      const isValid: boolean = schema.isValidSync(jsonData);
+      const isValid = schema.isValidSync(jsonData);
 
       // If schema does not pass validation, restore default data
       if (!isValid) return restoreDefaults<T>(fileName, defaultData);

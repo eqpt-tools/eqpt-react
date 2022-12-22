@@ -91,7 +91,11 @@ export default function NavItem({
         {active &&
           childItems &&
           childItems.map((child) => (
-            <ChildItem title={child.title} route={child.route} />
+            <ChildItem
+              key={child.title}
+              title={child.title}
+              route={child.route}
+            />
           ))}
       </div>
     </div>

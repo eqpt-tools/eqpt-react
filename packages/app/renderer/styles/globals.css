@@ -13,6 +13,10 @@
     -webkit-app-region: drag;
   }
 
+  .nodrag {
+    -webkit-app-region: no-drag;
+  }
+
   @keyframes enter {
     0% {
       transform: scale(0.9);

@@ -86,7 +86,7 @@ export default function Navbar() {
       <div className="pt-14 px-8">
         {ITEMS.map((item) => (
           <NavItem
-            key={item.route}
+            key={item.title}
             icon={item.icon}
             route={item.route}
             title={item.title}

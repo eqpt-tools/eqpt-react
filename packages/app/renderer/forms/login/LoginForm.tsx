@@ -3,12 +3,12 @@ import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
 import { useRouter } from 'next/router';
-import { useLogin } from '@local/graphql';
+import { useLogin, MutationLoginArgs } from '@local/graphql';
 import Input from '../../components/shared/Input';
 import Button from '../../components/shared/Button';
 import { alertFailure, alertSuccess } from '../../helpers/toast';
 
-const initialValues = {
+const initialValues: MutationLoginArgs = {
   licenseKey: '',
 };
 
@@ -30,7 +30,10 @@ export default function LoginForm() {
     },
   });
 
-  const handleSubmit = useCallback((values: any) => login(values), [router]);
+  const handleSubmit = useCallback(
+    (values: MutationLoginArgs) => login(values),
+    [login],
+  );
 
   return (
     <Formik

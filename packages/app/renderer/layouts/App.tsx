@@ -9,14 +9,14 @@ function AppLayout({ children }: Props) {
   return (
     <div className="flex flex-grow min-h-screen select-none drag">
       <Navbar />
-      <div className="ml-52 flex w-full text-white p-10">{children}</div>
+      <div className="ml-52 flex w-full text-white p-10 nodrag">{children}</div>
     </div>
   );
 }
 
 function Scroll({ children }: Props) {
   return (
-    <div style={{ height: 'calc(100vh - 120px)' }} className="overflow-scroll">
+    <div style={{ height: 'calc(100vh - 192px)' }} className="overflow-scroll">
       {children}
     </div>
   );

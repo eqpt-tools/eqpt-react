@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import Button from '../components/shared/Button';
 import PageTitle from '../components/shared/PageTitle';
 import Table from '../components/shared/Table';
 import AppLayout from '../layouts/App';
@@ -160,6 +161,29 @@ export default function Vault() {
     <AppLayout>
       <div className="flex flex-col w-full">
         <PageTitle title="Vault" />
+
+        <div className="flex justify-between my-5">
+          <div className="space-x-3">
+            <Button type="button" size="md" color="primary">
+              Create
+            </Button>
+
+            <Button type="button" size="md" color="primary">
+              Bulk create
+            </Button>
+            <Button type="button" size="md" color="warning">
+              Clear
+            </Button>
+          </div>
+          <div className="space-x-3">
+            <Button type="button" size="md" color="secondary">
+              Import
+            </Button>
+            <Button type="button" size="md" color="secondary">
+              Export
+            </Button>
+          </div>
+        </div>
 
         <AppLayout.Scroll>
           <Table<Entry> data={data} columns={columns} />

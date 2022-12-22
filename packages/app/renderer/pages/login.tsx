@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ipcRenderer } from 'electron';
 import AuthLayout from '../layouts/Auth';
 import Text from '../components/shared/Text';

@@ -37,6 +37,7 @@ interface Props {
   weight?: Weight;
   opacity?: Opacity;
   tracking?: Tracking;
+  truncate?: boolean;
 }
 
 export default function Text({
@@ -45,6 +46,7 @@ export default function Text({
   weight = 'normal',
   opacity = 90,
   tracking = 'normal',
+  truncate,
 }: Props) {
   return (
     <div
@@ -95,6 +97,9 @@ export default function Text({
           'tracking-wide': tracking === 'wide',
           'tracking-wider': tracking === 'wider',
           'tracking-widest': tracking === 'widest',
+        },
+        {
+          truncate,
         },
       )}
     >

@@ -13,6 +13,7 @@ module.exports = {
       red: colors.red,
       indigo: colors.indigo,
       transparent: colors.transparent,
+      black: colors.black,
     },
     extend: {},
   },

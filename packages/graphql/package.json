@@ -5,7 +5,9 @@
   "scripts": {
     "build": "graphql-codegen --config codegen.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "graphql-request": "^5.1.0"
+  },
   "devDependencies": {
     "@graphql-codegen/add": "^3.2.3",
     "@graphql-codegen/cli": "2.16.1",

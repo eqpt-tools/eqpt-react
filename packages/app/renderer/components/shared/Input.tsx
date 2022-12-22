@@ -1,8 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { useField } from 'formik';
 
-interface Props {
+export interface Props {
   name: string;
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   placeholder?: string;
@@ -21,8 +20,6 @@ export default function Input({
   readOnly,
   ...props
 }: Props) {
-  const [, meta] = useField(name);
-
   return (
     <input
       name={name}
@@ -36,7 +33,7 @@ export default function Input({
       autoCorrect="off"
       className={clsx(
         'bg-transparent text-white text-base border-2 border-gray-800 focus:ring ring-indigo-500 ring-opacity-30 focus:outline-none transition focus-within:z-10 py-1 px-3',
-        'placeholder-gray-500',
+        'placeholder:gray-500 placeholder:text-base',
         className,
         {
           'h-8 text-sm': size === 'xs',
@@ -47,7 +44,6 @@ export default function Input({
         },
         { 'rounded-md': !className?.includes('rounded') },
         { 'w-full': !className?.includes('w-') },
-        { '!border-red-400': meta.touched && meta.error },
       )}
       {...props}
     />

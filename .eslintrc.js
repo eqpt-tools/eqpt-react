@@ -6,12 +6,13 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  ignorePatterns: ['packages/graphql/**'],
+  ignorePatterns: ['packages/graphql/**', 'packages/**/dist'],
   extends: [
     'next',
     'plugin:react/recommended',
     'airbnb',
     'prettier',
+    'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
   ],
   parserOptions: {
@@ -43,7 +44,10 @@ module.exports = {
     'no-console': 'off',
     'import/extensions': 'off',
     'no-shadow': 'off',
-    '@next/next/no-html-link-for-pages': ['error', 'renderer/pages'],
+    '@next/next/no-html-link-for-pages': [
+      'error',
+      'packages/app/renderer/pages',
+    ],
     'operator-linebreak': 'off',
     quotes: [2, 'single', { avoidEscape: true }],
     'react/jsx-indent': [
