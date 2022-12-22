@@ -19,7 +19,8 @@ const config: CodegenConfig = {
       ],
       config: {
         fetcher: {
-          endpoint: 'http://localhost:4000',
+          endpoint:
+            '`http://localhost:${process.env.NEXT_PUBLIC_GRAPHQL_PORT}`',
           fetchParams: {
             headers: {
               'Content-Type': 'application/json',

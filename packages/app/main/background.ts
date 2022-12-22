@@ -1,5 +1,6 @@
 import { app, ipcMain } from 'electron';
 import serve from 'electron-serve';
+import { read } from '@local/data/schemas/settings';
 import { createWindow } from './helpers';
 import graphql from './graphql';
 
@@ -45,3 +46,9 @@ ipcMain.on('close-app', () => {
 });
 
 ipcMain.handle('get-env', () => isProd);
+
+ipcMain.handle('get-port', async () => {
+  const settings = await read();
+
+  return settings.port;
+});

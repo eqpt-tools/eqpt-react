@@ -8,6 +8,11 @@ type Settings {
   A string that represents a discord webhook used for notifications
   """
   discordWebhook: String
+
+  """
+  The port that the GraphQL application is hosted at
+  """
+  port: String
 }
 
 type Query {

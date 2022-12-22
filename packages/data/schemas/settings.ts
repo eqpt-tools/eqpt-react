@@ -7,11 +7,13 @@ const fileName = 'settings.json';
 const defaultData: Settings = {
   discordWebhook: null,
   licenseKey: null,
+  port: null,
 };
 
 const schema = yup.object().shape({
   discordWebhook: yup.string().nullable(),
   licenseKey: yup.string().nullable(),
+  port: yup.string().nullable(),
 });
 
 const read = readFile<Settings>({ fileName, defaultData, schema });
