@@ -33,15 +33,6 @@ export default function Index() {
           <Button type="button" size="lg" color="primary" onClick={handleOpen}>
             Open modal
           </Button>
-          <Button type="button" size="lg" color="primary" onClick={handleOpen}>
-            Open modal
-          </Button>
-          <Button type="button" size="lg" color="primary" onClick={handleOpen}>
-            Open modal
-          </Button>
-          <Button type="button" size="lg" color="primary" onClick={handleOpen}>
-            Open modal
-          </Button>
           <QuickActions>
             <QuickActions.Item text="Delete" />
             <QuickActions.Item text="Delete" />
