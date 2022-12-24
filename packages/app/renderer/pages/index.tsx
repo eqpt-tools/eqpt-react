@@ -1,13 +1,12 @@
 import { Field, Form, Formik, FormikValues } from 'formik';
 import React, { useCallback, useState } from 'react';
 import * as Yup from 'yup';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
 import Button from '../components/shared/Button';
 import ErrorLabel from '../components/shared/forms/ErrorLabel';
 import Input from '../components/shared/Input';
 import Label from '../components/shared/forms/Label';
 import Modal from '../components/shared/Modal';
-import PageTitle from '../components/shared/PageTitle';
 import { alertSuccess } from '../helpers/toast';
 import AppLayout from '../layouts/App';
 import Select from '../components/shared/forms/Select';
@@ -25,22 +24,18 @@ export default function Index() {
   }, []);
 
   return (
-    <AppLayout>
-      <div className="flex flex-col w-full">
-        <PageTitle title="Index" />
-
-        <AppLayout.Scroll>
-          <Button type="button" size="lg" color="primary" onClick={handleOpen}>
-            Open modal
-          </Button>
-          <QuickActions>
-            <QuickActions.Item text="Delete" />
-            <QuickActions.Item text="Delete" />
-            <QuickActions.Item text="Delete" color="warning" icon={faTrash} />
-            <QuickActions.Item text="Delete" color="warning" />
-          </QuickActions>
-        </AppLayout.Scroll>
-      </div>
+    <AppLayout title="Index">
+      <AppLayout.Scroll>
+        <Button type="button" size="lg" color="primary" onClick={handleOpen}>
+          Open modal
+        </Button>
+        <QuickActions>
+          <QuickActions.Item text="Delete" />
+          <QuickActions.Item text="Delete" />
+          <QuickActions.Item text="Delete" color="warning" icon={faTrash} />
+          <QuickActions.Item text="Delete" color="warning" />
+        </QuickActions>
+      </AppLayout.Scroll>
 
       <Modal open={open} onClose={handleClose}>
         <Formik

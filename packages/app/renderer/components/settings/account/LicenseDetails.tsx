@@ -1,8 +1,8 @@
-import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
-import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
+import { faEye } from '@fortawesome/pro-solid-svg-icons/faEye';
+import { faCopy } from '@fortawesome/pro-solid-svg-icons/faCopy';
 import React, { useCallback, useMemo, useState } from 'react';
 import { useFetchSettings } from '@local/graphql';
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
 import Button from '../../shared/Button';
 import Text from '../../shared/Text';
 import useCopy from '../../../hooks/useCopy';

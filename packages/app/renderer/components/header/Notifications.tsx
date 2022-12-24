@@ -1,9 +1,9 @@
 import { Popover, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
-import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
+import { faChevronDown } from '@fortawesome/pro-solid-svg-icons/faChevronDown';
+import { faBell } from '@fortawesome/pro-solid-svg-icons/faBell';
 import Image from 'next/image';
-import { faFaceMeh } from '@fortawesome/free-solid-svg-icons/faFaceMeh';
+import { faFaceMeh } from '@fortawesome/pro-solid-svg-icons/faFaceMeh';
 import Icon from '../shared/Icon';
 import Text from '../shared/Text';
 import Button from '../shared/Button';
@@ -46,7 +46,7 @@ export default function Notifications() {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4">
+        <Popover.Panel className="absolute right-[-143px] top-[65px] z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4">
           <svg
             width="26"
             height="17"

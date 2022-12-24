@@ -1,6 +1,6 @@
 import React from 'react';
-import { faSignOut } from '@fortawesome/free-solid-svg-icons/faSignOut';
-import { faComputer } from '@fortawesome/free-solid-svg-icons/faComputer';
+import { faSignOut } from '@fortawesome/pro-solid-svg-icons/faSignOut';
+import { faComputer } from '@fortawesome/pro-solid-svg-icons/faComputer';
 import Button from '../../components/shared/Button';
 import PageTitle from '../../components/shared/PageTitle';
 import SettingsLayout from '../../layouts/Settings';

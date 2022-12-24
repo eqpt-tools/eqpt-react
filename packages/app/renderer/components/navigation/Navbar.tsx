@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
-import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
-import { faDesktop } from '@fortawesome/free-solid-svg-icons/faDesktop';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons/faBagShopping';
-import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
-import { faNetworkWired } from '@fortawesome/free-solid-svg-icons/faNetworkWired';
+import { faCog } from '@fortawesome/pro-solid-svg-icons/faCog';
+import { faCalendar } from '@fortawesome/pro-solid-svg-icons/faCalendar';
+import { faChartLineUp } from '@fortawesome/pro-solid-svg-icons/faChartLineUp';
+import { faBagShopping } from '@fortawesome/pro-solid-svg-icons/faBagShopping';
+import { faLock } from '@fortawesome/pro-solid-svg-icons/faLock';
 import { useRouter } from 'next/router';
-import { faCreditCardAlt } from '@fortawesome/free-solid-svg-icons/faCreditCardAlt';
+import { faCreditCardAlt } from '@fortawesome/pro-solid-svg-icons/faCreditCardAlt';
+import { faServer } from '@fortawesome/pro-solid-svg-icons/faServer';
+import { faBrowser } from '@fortawesome/pro-solid-svg-icons/faBrowser';
 import NavItem, { NavigationItemProps } from './NavItem';
 
 const LOGO_SIZE = 60;
@@ -34,7 +34,7 @@ export default function Navbar() {
         ],
       },
       {
-        icon: faDesktop,
+        icon: faBrowser,
         route: '/browsers',
         title: 'Browsers',
       },
@@ -44,7 +44,7 @@ export default function Navbar() {
         title: 'Calendar',
       },
       {
-        icon: faChartLine,
+        icon: faChartLineUp,
         route: '/market',
         title: 'Market',
       },
@@ -54,7 +54,7 @@ export default function Navbar() {
         title: 'Orders',
       },
       {
-        icon: faNetworkWired,
+        icon: faServer,
         route: '/proxies',
         title: 'Proxies',
       },

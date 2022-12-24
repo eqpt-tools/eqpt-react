@@ -1,7 +1,7 @@
 import React, { Fragment, useMemo } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
+import { faChevronDown } from '@fortawesome/pro-solid-svg-icons/faChevronDown';
 import clsx from 'clsx';
 import Icon from './Icon';
 import Text from './Text';

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
+import { faSignInAlt } from '@fortawesome/pro-solid-svg-icons/faSignInAlt';
 import { useRouter } from 'next/router';
 import { useLogin, MutationLoginArgs } from '@local/graphql';
 import Input from '../../components/shared/Input';

@@ -1,6 +1,10 @@
+import { faLayerPlus } from '@fortawesome/pro-solid-svg-icons/faLayerPlus';
+import { faPlus } from '@fortawesome/pro-solid-svg-icons/faPlus';
+import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
 import React, { useMemo } from 'react';
+import { faArrowRightToBracket } from '@fortawesome/pro-solid-svg-icons/faArrowRightToBracket';
+import { faArrowRightFromBracket } from '@fortawesome/pro-solid-svg-icons/faArrowRightFromBracket';
 import Button from '../components/shared/Button';
-import PageTitle from '../components/shared/PageTitle';
 import Table from '../components/shared/Table';
 import AppLayout from '../layouts/App';
 
@@ -158,28 +162,36 @@ export default function Vault() {
   );
 
   return (
-    <AppLayout>
+    <AppLayout title="Vault">
       <div className="flex flex-col w-full">
-        <PageTitle title="Vault" />
-
         <div className="flex justify-between my-5">
           <div className="space-x-3">
-            <Button type="button" size="md" color="primary">
+            <Button type="button" size="md" color="primary" icon={faPlus}>
               Create
             </Button>
 
-            <Button type="button" size="md" color="primary">
+            <Button type="button" size="md" color="primary" icon={faLayerPlus}>
               Bulk create
             </Button>
-            <Button type="button" size="md" color="warning">
+            <Button type="button" size="md" color="warning" icon={faTrash}>
               Clear
             </Button>
           </div>
           <div className="space-x-3">
-            <Button type="button" size="md" color="secondary">
+            <Button
+              type="button"
+              size="md"
+              color="secondary"
+              icon={faArrowRightToBracket}
+            >
               Import
             </Button>
-            <Button type="button" size="md" color="secondary">
+            <Button
+              type="button"
+              size="md"
+              color="secondary"
+              icon={faArrowRightFromBracket}
+            >
               Export
             </Button>
           </div>

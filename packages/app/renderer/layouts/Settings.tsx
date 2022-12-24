@@ -1,6 +1,6 @@
-import { faChartSimple } from '@fortawesome/free-solid-svg-icons/faChartSimple';
-import { faWaveSquare } from '@fortawesome/free-solid-svg-icons/faWaveSquare';
-import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+import { faWaveSquare } from '@fortawesome/pro-solid-svg-icons/faWaveSquare';
+import { faUser } from '@fortawesome/pro-solid-svg-icons/faUser';
+import { faCircleInfo } from '@fortawesome/pro-solid-svg-icons';
 import React, { ReactNode } from 'react';
 import Navbar from '../components/navigation/Navbar';
 import SettingsTab, {
@@ -23,7 +23,7 @@ const tabs: TabProps[] = [
     title: 'Software Information',
     subtitle: 'Check for updates, read changelogs',
     route: '/settings/information',
-    icon: faChartSimple,
+    icon: faCircleInfo,
   },
   {
     title: 'Integrations',

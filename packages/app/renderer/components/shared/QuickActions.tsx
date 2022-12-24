@@ -1,6 +1,6 @@
 import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment, ReactNode } from 'react';
-import { faEllipsis } from '@fortawesome/free-solid-svg-icons/faEllipsis';
+import { faEllipsis } from '@fortawesome/pro-solid-svg-icons/faEllipsis';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import clsx from 'clsx';
 import Icon from './Icon';
