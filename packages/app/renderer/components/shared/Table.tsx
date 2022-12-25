@@ -17,10 +17,10 @@ export default function Table<T extends object>({ columns, data }: Props<T>) {
 
   return (
     <table
-      className="border-separate w-full border-spacing-y-2"
+      className="table-fixed border-separate w-full border-spacing-y-2"
       {...getTableProps()}
     >
-      <thead className="bg-[#1A1B24]">
+      <thead className="bg-[#1A1B24] z-10 sticky top-0">
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column, index) => {
@@ -30,7 +30,7 @@ export default function Table<T extends object>({ columns, data }: Props<T>) {
               return (
                 <th
                   className={clsx(
-                    'text-left px-3 py-4 border border-transparent',
+                    'text-left py-4 px-6 border border-transparent',
                     {
                       'rounded-l': isFirst,
                       'rounded-r': isLast,
@@ -38,7 +38,9 @@ export default function Table<T extends object>({ columns, data }: Props<T>) {
                   )}
                   {...column.getHeaderProps()}
                 >
-                  <Text weight="semibold">{column.render('Header')}</Text>
+                  <Text weight="medium" opacity={100}>
+                    {column.render('Header')}
+                  </Text>
                 </th>
               );
             })}
@@ -56,15 +58,14 @@ export default function Table<T extends object>({ columns, data }: Props<T>) {
 
                 return (
                   <td
-                    className={clsx('p-3 border border-transparent', {
+                    className={clsx('py-2 px-6 border border-transparent', {
                       'rounded-l': isFirst,
                       'rounded-r': isLast,
+                      'text-opacity-80 text-white font-medium': !isLast,
                     })}
                     {...cell.getCellProps()}
                   >
-                    <Text weight="medium" opacity={80}>
-                      {cell.render('Cell')}
-                    </Text>
+                    {cell.render('Cell')}
                   </td>
                 );
               })}

@@ -7,6 +7,7 @@ import { faArrowRightFromBracket } from '@fortawesome/pro-solid-svg-icons/faArro
 import Button from '../components/shared/Button';
 import Table from '../components/shared/Table';
 import AppLayout from '../layouts/App';
+import Actions from '../components/vault/Actions';
 
 interface Entry {
   firstName: string;
@@ -156,6 +157,11 @@ export default function Vault() {
       {
         accessor: 'status',
         Header: 'Status',
+      },
+      {
+        accessor: 'id',
+        Header: '',
+        Cell: Actions,
       },
     ],
     [],

@@ -33,7 +33,7 @@ export default function Select({
 
   return (
     <Listbox name={name} value={value || ''} onChange={onChange}>
-      <div className="relative mt-1">
+      <div className="relative">
         <Listbox.Button
           className={clsx(
             'relative w-full rounded-lg bg-[#22242D] py-3 pl-5 pr-10 text-left focus:outline-none',

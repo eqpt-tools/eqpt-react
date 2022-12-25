@@ -1,5 +1,5 @@
 import { Menu, Transition } from '@headlessui/react';
-import React, { Fragment, ReactNode } from 'react';
+import React, { Fragment, MouseEvent, ReactNode } from 'react';
 import { faEllipsis } from '@fortawesome/pro-solid-svg-icons/faEllipsis';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import clsx from 'clsx';
@@ -14,6 +14,7 @@ interface Props {
 
 interface ItemProps {
   text: string;
+  onClick: (e: MouseEvent) => void;
   icon?: IconDefinition;
   color?: ItemColor;
 }
@@ -28,7 +29,7 @@ function QuickActions({ children }: Props) {
           color="secondary"
           size="lg"
           icon={faEllipsis}
-          className="!p-3 h-[44px]"
+          className="!p-2 h-[32px]"
         />
       </div>
 
@@ -41,7 +42,7 @@ function QuickActions({ children }: Props) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md shadow-lg focus:outline-none bg-[#20222C] border-[#262833] border-2">
+        <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md shadow-lg focus:outline-none bg-[#20222C] border-[#262833] border-2 z-20">
           <div className="p-1.5">{children}</div>
         </Menu.Items>
       </Transition>
@@ -49,10 +50,11 @@ function QuickActions({ children }: Props) {
   );
 }
 
-function Item({ text, icon, color = 'default' }: ItemProps) {
+function Item({ text, onClick, icon, color = 'default' }: ItemProps) {
   return (
     <Menu.Item>
       <button
+        onClick={onClick}
         className={clsx(
           'group flex w-full items-center rounded px-4 py-2 text-base font-medium text-gray-300',
           {
@@ -69,7 +71,7 @@ function Item({ text, icon, color = 'default' }: ItemProps) {
 }
 
 function Divider() {
-  return <div className="divide-y border-gray-800 space-y-3" />;
+  return <div className="divide-y border-[#262833] border my-1.5" />;
 }
 
 QuickActions.displayName = 'QuickActions';

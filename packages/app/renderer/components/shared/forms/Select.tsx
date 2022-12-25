@@ -1,17 +1,16 @@
 import React, { useCallback } from 'react';
 import clsx from 'clsx';
-import { FieldProps, useField, useFormikContext } from 'formik';
+import { FieldProps, useField } from 'formik';
 import CoreSelect, { Props } from '../Select';
 
 export default function Select({ name, ...props }: Props & FieldProps) {
-  const [, meta] = useField(name);
-  const { setFieldValue } = useFormikContext();
+  const [, meta, helpers] = useField(name);
 
   const handleChange = useCallback(
     (value: string) => {
-      setFieldValue(name, value);
+      helpers.setValue(value);
     },
-    [name, setFieldValue],
+    [helpers],
   );
 
   return (
