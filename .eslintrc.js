@@ -44,6 +44,7 @@ module.exports = {
     'no-console': 'off',
     'import/extensions': 'off',
     'no-shadow': 'off',
+    'func-names': 'off',
     '@next/next/no-html-link-for-pages': [
       'error',
       'packages/app/renderer/pages',

@@ -1,16 +1,17 @@
-import { Field, Form, Formik, FormikValues } from 'formik';
+// import { Field, Form, Formik, FormikValues } from 'formik';
 import React, { useCallback, useState } from 'react';
-import * as Yup from 'yup';
-import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
+// import * as Yup from 'yup';
+// import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
 import Button from '../components/shared/Button';
-import ErrorLabel from '../components/shared/forms/ErrorLabel';
-import Input from '../components/shared/Input';
-import Label from '../components/shared/forms/Label';
-import Modal from '../components/shared/Modal';
-import { alertSuccess } from '../helpers/toast';
+// import ErrorLabel from '../components/shared/forms/ErrorLabel';
+// import Input from '../components/shared/Input';
+// import Label from '../components/shared/forms/Label';
+// import Modal from '../components/shared/Modal';
+// import { alertSuccess } from '../helpers/toast';
 import AppLayout from '../layouts/App';
-import Select from '../components/shared/forms/Select';
-import QuickActions from '../components/shared/QuickActions';
+// import Select from '../components/shared/forms/Select';
+// import QuickActions from '../components/shared/QuickActions';
+import New from '../components/vault/new';
 
 export default function Index() {
   const [open, setOpen] = useState(false);
@@ -18,10 +19,10 @@ export default function Index() {
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
 
-  const handleSubmit = useCallback((values: FormikValues) => {
-    setOpen(false);
-    alertSuccess(`Saved horse: ${values.horse}`);
-  }, []);
+  // const handleSubmit = useCallback((values: FormikValues) => {
+  //   setOpen(false);
+  //   alertSuccess(`Saved horse: ${values.horse}`);
+  // }, []);
 
   return (
     <AppLayout title="Index">
@@ -29,16 +30,14 @@ export default function Index() {
         <Button type="button" size="lg" color="primary" onClick={handleOpen}>
           Open modal
         </Button>
-        <QuickActions>
-          <QuickActions.Item text="Delete" />
-          <QuickActions.Item text="Delete" />
-          <QuickActions.Item text="Delete" color="warning" icon={faTrash} />
-          <QuickActions.Item text="Delete" color="warning" />
-        </QuickActions>
+        <div className="p-4" />
       </AppLayout.Scroll>
 
-      <Modal open={open} onClose={handleClose}>
+      <New open={open} onClose={handleClose} />
+
+      {/* <Modal open={open} onClose={handleClose}>
         <Formik
+          validateOnBlur={false}
           initialValues={{ horse: '' }}
           validationSchema={Yup.object().shape({
             horse: Yup.string().required(
@@ -110,7 +109,7 @@ export default function Index() {
             </Form>
           )}
         </Formik>
-      </Modal>
+      </Modal> */}
     </AppLayout>
   );
 }

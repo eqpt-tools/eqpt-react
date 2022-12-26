@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import { faPlay } from '@fortawesome/pro-solid-svg-icons/faPlay';
 import { faCopy } from '@fortawesome/pro-solid-svg-icons/faCopy';
 import Button from '../shared/Button';
-import Select from '../shared/Select';
 
 type Mode = 'request' | 'ping';
 
