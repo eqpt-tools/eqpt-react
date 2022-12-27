@@ -10,3 +10,4 @@ files:
       - package.json
       - app
 publish: null
+afterPack: './build/afterPack.js'
