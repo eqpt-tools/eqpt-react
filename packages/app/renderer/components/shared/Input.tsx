@@ -33,7 +33,7 @@ export default function Input({
       autoCorrect="off"
       className={clsx(
         'bg-transparent text-white text-base border-2 border-gray-800 focus:ring ring-indigo-500 ring-opacity-30 focus:outline-none transition focus-within:z-10 py-1 px-3',
-        'placeholder:gray-500 placeholder:text-base',
+        'placeholder-gray-500 placeholder-text-base',
         className,
         {
           'h-8 text-sm': size === 'xs',

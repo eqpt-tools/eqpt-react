@@ -9,7 +9,7 @@ const resolvers = {
     },
   },
   mutations: {
-    login: async (_parent, args) => {
+    login: async function login(_parent, args) {
       console.log(`auth -> login -> ${args.licenseKey}`);
 
       await write({

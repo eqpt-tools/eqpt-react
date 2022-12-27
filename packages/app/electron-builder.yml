@@ -1,6 +1,6 @@
-appId: com.example.nextron
-productName: My Nextron App
-copyright: Copyright © 2018 Yoshihide Shiono
+appId: io.eqpt.desktop
+productName: EQPT Tools
+copyright: Copyright © 2022 Connor Stevens
 directories:
   output: dist
   buildResources: resources

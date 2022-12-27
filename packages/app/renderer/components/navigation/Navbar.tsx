@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { faCreditCardAlt } from '@fortawesome/pro-solid-svg-icons/faCreditCardAlt';
 import { faServer } from '@fortawesome/pro-solid-svg-icons/faServer';
 import { faBrowser } from '@fortawesome/pro-solid-svg-icons/faBrowser';
+import { faShopify } from '@fortawesome/free-brands-svg-icons/faShopify';
 import NavItem, { NavigationItemProps } from './NavItem';
 
 const LOGO_SIZE = 60;
@@ -57,6 +58,11 @@ export default function Navbar() {
         icon: faServer,
         route: '/proxies',
         title: 'Proxies',
+      },
+      {
+        icon: faShopify,
+        route: '/products',
+        title: 'Shopify',
       },
       {
         icon: faLock,

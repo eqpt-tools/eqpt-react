@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const lineClampPlugin = require('@tailwindcss/line-clamp');
 
 /**
  *  @type {import('tailwindcss').Config}
@@ -20,5 +21,5 @@ module.exports = {
   fontFamily: {
     sans: ['system-ui', 'sans-serif'],
   },
-  plugins: [],
+  plugins: [lineClampPlugin],
 };

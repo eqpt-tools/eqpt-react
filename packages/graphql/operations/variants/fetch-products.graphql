@@ -1,0 +1,14 @@
+query FetchProducts {
+  products {
+    id
+    store
+    url
+    title
+    image
+    variants {
+      id
+      title
+      stock
+    }
+  }
+}

@@ -4,7 +4,11 @@ import { write, read } from '@local/data/schemas/settings';
 import { resolvers } from './resolvers';
 import getPort from '../helpers/get-port';
 // @ts-ignore not sure about this one
-import schema from './schema.graphql';
+import root from './schema/root.graphql';
+// @ts-ignore not sure about this one
+import settings from './schema/settings.graphql';
+// @ts-ignore not sure about this one
+import products from './schema/products.graphql';
 
 interface ApolloContext {
   time: number;
@@ -12,7 +16,7 @@ interface ApolloContext {
 
 // Create the apollo server
 const server = new ApolloServer<ApolloContext>({
-  typeDefs: schema,
+  typeDefs: [root, settings, products],
   resolvers,
 });
 

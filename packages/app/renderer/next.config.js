@@ -10,11 +10,10 @@ module.exports = {
 
     return config;
   },
-
   images: {
-    domains: ['cnrstvns.dev'],
+    domains: ['cnrstvns.dev', 'cdn.shopify.com'],
+    unoptimized: true,
   },
-
   experimental: {
     transpilePackages: ['@local/graphql'],
   },

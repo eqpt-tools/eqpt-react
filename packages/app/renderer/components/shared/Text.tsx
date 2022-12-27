@@ -31,6 +31,8 @@ type Opacity = 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;
 
 type Tracking = 'tighter' | 'tight' | 'normal' | 'wide' | 'wider' | 'widest';
 
+type LineClamp = 1 | 2 | 3 | 4 | 5 | 6;
+
 interface Props {
   children: ReactNode;
   size?: Size;
@@ -38,6 +40,9 @@ interface Props {
   opacity?: Opacity;
   tracking?: Tracking;
   truncate?: boolean;
+  uppercase?: boolean;
+  lineClamp?: LineClamp;
+  className?: string;
 }
 
 export default function Text({
@@ -47,11 +52,15 @@ export default function Text({
   opacity = 90,
   tracking = 'normal',
   truncate,
+  uppercase,
+  lineClamp,
+  className,
 }: Props) {
   return (
     <div
       className={clsx(
         'text-white',
+        className,
         {
           'text-xs': size === 'xs',
           'text-sm': size === 'sm',
@@ -99,7 +108,11 @@ export default function Text({
           'tracking-widest': tracking === 'widest',
         },
         {
+          'line-clamp-1': lineClamp === 1,
+        },
+        {
           truncate,
+          uppercase,
         },
       )}
     >

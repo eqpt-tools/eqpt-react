@@ -45,16 +45,9 @@ module.exports = {
     'import/extensions': 'off',
     'no-shadow': 'off',
     'func-names': 'off',
-    '@next/next/no-html-link-for-pages': [
-      'error',
-      'packages/app/renderer/pages',
-    ],
+    '@next/next/no-html-link-for-pages': 'off',
     'operator-linebreak': 'off',
     quotes: [2, 'single', { avoidEscape: true }],
-    'react/jsx-indent': [
-      'error',
-      2,
-      { checkAttributes: true, indentLogicalExpressions: true },
-    ],
+    'react/jsx-indent': ['off'],
   },
 };

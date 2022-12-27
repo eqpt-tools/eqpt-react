@@ -13,7 +13,7 @@ module.exports = {
     },
     entry: path.resolve(__dirname, 'main/background.ts'),
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'app'),
     },
   },
 };

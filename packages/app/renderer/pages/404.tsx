@@ -13,7 +13,7 @@ export default function NotFound() {
   return (
     <ErrorLayout>
       <div className="space-y-3">
-        <div className="w-12 h-12 rounded-md flex items-center justify-center transition bg-gray-800 text-white">
+        <div className="w-12 h-12 rounded-md flex items-center justify-center bg-gray-800 text-white">
           <Icon icon={faWarning} size="lg" />
         </div>
 

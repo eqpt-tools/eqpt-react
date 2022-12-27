@@ -1,13 +1,13 @@
 import { faLayerPlus } from '@fortawesome/pro-solid-svg-icons/faLayerPlus';
 import { faPlus } from '@fortawesome/pro-solid-svg-icons/faPlus';
 import { faTrash } from '@fortawesome/pro-solid-svg-icons/faTrash';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { faArrowRightToBracket } from '@fortawesome/pro-solid-svg-icons/faArrowRightToBracket';
 import { faArrowRightFromBracket } from '@fortawesome/pro-solid-svg-icons/faArrowRightFromBracket';
+import { createColumnHelper } from '@tanstack/react-table';
 import Button from '../components/shared/Button';
 import Table from '../components/shared/Table';
 import AppLayout from '../layouts/App';
-import Actions from '../components/vault/Actions';
 
 interface Entry {
   firstName: string;
@@ -140,32 +140,22 @@ const data: Entry[] = [
 ];
 
 export default function Vault() {
-  const columns = useMemo(
-    () => [
-      {
-        accessor: 'firstName',
-        Header: 'First Name',
-      },
-      {
-        accessor: 'lastName',
-        Header: 'Last Name',
-      },
-      {
-        accessor: 'visits',
-        Header: 'Visits',
-      },
-      {
-        accessor: 'status',
-        Header: 'Status',
-      },
-      {
-        accessor: 'id',
-        Header: '',
-        Cell: Actions,
-      },
-    ],
-    [],
-  );
+  const columnHelper = createColumnHelper<Entry>();
+
+  const columns = [
+    columnHelper.accessor('firstName', {
+      header: 'First Name',
+      cell: (info) => info.getValue(),
+    }),
+    columnHelper.accessor('lastName', {
+      header: 'Last Name',
+      cell: (info) => info.getValue(),
+    }),
+    columnHelper.accessor('visits', {
+      header: 'Visits',
+      cell: (info) => info.getValue(),
+    }),
+  ];
 
   return (
     <AppLayout title="Vault">

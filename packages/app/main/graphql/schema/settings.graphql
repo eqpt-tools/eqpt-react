@@ -14,17 +14,3 @@ type Settings {
   """
   port: String
 }
-
-type Query {
-  """
-  Retrieve this application's settings
-  """
-  settings: Settings
-}
-
-type Mutation {
-  """
-  Authenticate using a license key
-  """
-  login(licenseKey: String!): Settings
-}

@@ -1,4 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faSpinnerThird } from '@fortawesome/pro-solid-svg-icons';
 import clsx from 'clsx';
 import React, { MouseEvent, ReactNode } from 'react';
 import Icon from './Icon';
@@ -17,8 +18,9 @@ interface Props {
   icon?: IconDefinition;
   onClick?: (e: MouseEvent) => void;
   disabled?: boolean;
-  className?: string;
   type: 'button' | 'submit';
+  className?: string;
+  loading?: boolean;
 }
 
 export default function Button({
@@ -30,6 +32,7 @@ export default function Button({
   onClick,
   icon,
   className,
+  loading,
   ...props
 }: Props) {
   return (
@@ -65,7 +68,15 @@ export default function Button({
       )}
       {...props}
     >
-      {icon && <Icon className={!children ? '' : 'mr-2'} icon={icon} />}
+      {!loading && icon && (
+        <Icon className={!children ? '' : 'mr-2'} icon={icon} />
+      )}
+      {loading && (
+        <Icon
+          className={clsx('fa-spin', { 'mr-2': !!children })}
+          icon={faSpinnerThird}
+        />
+      )}
       {children}
     </button>
   );

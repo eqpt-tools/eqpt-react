@@ -15,7 +15,7 @@ const types = [
   },
   {
     name: 'Accounts',
-    description: 'Store your bulk website accounts.',
+    description: 'Store your bulk webstore accounts.',
     icon: faUserFriends,
   },
   {
