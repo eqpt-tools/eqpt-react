@@ -1,5 +1,5 @@
 const path = require('path');
-// const Obfuscator = require('webpack-obfuscator');
+const Obfuscator = require('webpack-obfuscator');
 
 module.exports = {
   webpack: {
@@ -8,9 +8,9 @@ module.exports = {
       path: path.resolve(__dirname, 'app'),
     },
     plugins: [
-      // new Obfuscator({
-      //   rotateStringArray: true,
-      // }),
+      new Obfuscator({
+        rotateStringArray: true,
+      }),
     ],
   },
 };

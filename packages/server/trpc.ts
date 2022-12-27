@@ -1,7 +1,7 @@
 import { inferAsyncReturnType, initTRPC } from '@trpc/server';
 import * as trpcExpress from '@trpc/server/adapters/express';
 
-const createContext = ({
+export const createContext = ({
   req,
   res,
 }: trpcExpress.CreateExpressContextOptions) => ({

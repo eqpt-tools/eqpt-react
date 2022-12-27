@@ -1,6 +1,6 @@
 import { Product } from '@local/data/schemas/products';
 import axios from 'axios';
-import { nanoid } from 'nanoid';
+import { randomUUID } from 'crypto';
 
 interface ShopifyVariant {
   id: number;
@@ -13,12 +13,10 @@ interface ShopifyImage {
 }
 
 interface ShopifyProduct {
-  product: {
-    id: number | string;
-    title: string;
-    variants: [ShopifyVariant];
-    image?: ShopifyImage;
-  };
+  id: number | string;
+  title: string;
+  variants: [ShopifyVariant];
+  image?: ShopifyImage;
 }
 
 interface ShopifyStore {
@@ -39,16 +37,16 @@ export const retrieveProduct = async function retrieveProduct(
     const productDataUrl = `${url}.json`;
     const storeDataUrl = `${new URL(url).origin}/meta.json`;
 
-    const { product: productData } = await axiosInstance
+    const productData = await axiosInstance
       .get(productDataUrl)
-      .then((response) => response.data as ShopifyProduct);
+      .then((response) => response.data.product as ShopifyProduct);
 
     const storeData = await axiosInstance
       .get(storeDataUrl)
       .then((response) => response.data as ShopifyStore);
 
     return {
-      id: nanoid(),
+      id: randomUUID(),
       store: storeData.name,
       url,
       title: productData.title,

@@ -1,8 +1,9 @@
 import { app, ipcMain } from 'electron';
 import serve from 'electron-serve';
-import { read } from '@local/data/schemas/settings';
+import { read, write } from '@local/data/schemas/settings';
 import { createWindow } from './helpers';
 import server from '@local/server';
+import getPort from './helpers/get-port';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 
@@ -14,7 +15,13 @@ if (isProd) {
 
 (async () => {
   // Listen for TRPC requests
-  server.listen();
+  const port = getPort();
+  await write({
+    ...(await read()),
+    port: port.toString(),
+  });
+
+  server.listen(port);
 
   await app.whenReady();
 

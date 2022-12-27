@@ -14,12 +14,4 @@ module.exports = {
     domains: ['cnrstvns.dev', 'cdn.shopify.com'],
     unoptimized: true,
   },
-  rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:2021/:path*',
-      },
-    ];
-  },
 };
