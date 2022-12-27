@@ -3,7 +3,6 @@ import serve from 'electron-serve';
 import { read, write } from '@local/data/schemas/settings';
 import { createWindow } from './helpers';
 import server from '@local/server';
-import getPort from './helpers/get-port';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 
@@ -15,9 +14,7 @@ if (isProd) {
 
 (async () => {
   // Listen for TRPC requests
-  const port = await getPort();
-
-  server.listen(port);
+  server.listen();
 
   await app.whenReady();
 

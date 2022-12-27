@@ -37,10 +37,7 @@ export default function AddVariant() {
     });
 
   const handleSubmit = useCallback(
-    (values: typeof initialValues) =>
-      addProduct({
-        url: values.url,
-      }),
+    (values: typeof initialValues) => addProduct(values),
     [addProduct],
   );
 

@@ -32,7 +32,7 @@ export default function LoginForm() {
 
   const handleSubmit = useCallback(
     (values: typeof initialValues) => {
-      login({ licenseKey: values.licenseKey });
+      login(values);
     },
     [login],
   );

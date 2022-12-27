@@ -3,11 +3,12 @@ import * as trpcExpress from '@trpc/server/adapters/express';
 import cors from 'cors';
 import { appRouter } from './routers/_app';
 import { createContext } from './trpc';
+import getPort from './helpers/get-port';
 
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 export default {
-  listen(port: number) {
+  async listen() {
     // Instantiate express server
     const app = express();
 
@@ -31,6 +32,8 @@ export default {
         createContext,
       }),
     );
+
+    const port = await getPort();
 
     app.listen(port, () => {
       if (IS_DEV) console.log('listening on', port);
