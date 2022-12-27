@@ -13,7 +13,7 @@ import Checkbox from './Checkbox';
 import useBulkSelectContext from '../../context/BulkSelectContext';
 
 interface Props<T extends object> {
-  columns: ColumnDef<T>[];
+  columns: ColumnDef<T, unknown>[];
   data: T[];
   selectable?: boolean;
 }

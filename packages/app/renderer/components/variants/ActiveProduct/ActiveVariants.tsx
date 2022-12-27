@@ -1,4 +1,4 @@
-import { ProductVariant } from '@local/graphql';
+import { ProductVariant } from '@local/data/schemas/products';
 import React from 'react';
 import { CellContext, createColumnHelper } from '@tanstack/react-table';
 import useVariantContext from '../../../context/VariantContext';

@@ -1,9 +1,9 @@
 import { createContext, useContext } from 'react';
-import { Product } from '@local/graphql';
+import { Product } from '@local/data/schemas/products';
 
 interface VariantContext {
   product: Product | null;
-  setProduct: (product: Product) => void;
+  setProduct: (product: Product | null) => void;
 }
 
 export const VariantContext = createContext<VariantContext | null>(null);

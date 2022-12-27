@@ -23,4 +23,20 @@ export const productsRouter = router({
 
       return product;
     }),
+  delete: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .mutation(async ({ input }) => {
+      console.log(`products -> delete -> ${input.id}`);
+
+      const products = await read();
+      const product = products.find((p) => p.id === input.id);
+
+      await write(products.filter((p) => p.id !== input.id));
+
+      return product;
+    }),
 });

@@ -1,10 +1,12 @@
 import React, { useCallback } from 'react';
 import Image from 'next/image';
 import pluralize from 'pluralize';
+import { Product } from '@local/data/schemas/products';
 import Text from '../../shared/Text';
 import useVariantContext from '../../../context/VariantContext';
 import Button from '../../shared/Button';
-import { Product } from '@local/data/schemas/products';
+import { trpc } from '../../../helpers/trpc';
+import { alertSuccess, alertFailure } from '../../../helpers/toast';
 
 interface Props {
   product: Product;
@@ -12,10 +14,33 @@ interface Props {
 
 export default function SavedProduct({ product }: Props) {
   const { setProduct } = useVariantContext();
+  const trpcContext = trpc.useContext();
+
+  const { mutateAsync: deleteProduct } = trpc.products.delete.useMutation({
+    onSuccess: (response) => {
+      alertSuccess(`Success. Deleted ${response.title}`);
+
+      trpcContext.products.list.invalidate();
+    },
+    onError: () => {
+      alertFailure('Error fetching variant.');
+    },
+  });
 
   const handleLoad = useCallback(() => {
     setProduct(product);
   }, [setProduct, product]);
+
+  const handleDelete = useCallback(
+    (id: string) => {
+      return function () {
+        if (product.id === id) setProduct(null);
+
+        return deleteProduct({ id });
+      };
+    },
+    [deleteProduct, product.id, setProduct],
+  );
 
   return (
     <div className="flex-col bg-[#262732] rounded p-4 space-y-2">
@@ -49,7 +74,12 @@ export default function SavedProduct({ product }: Props) {
         <Button type="button" size="sm" color="primary" onClick={handleLoad}>
           Load
         </Button>
-        <Button type="button" size="sm" color="warning">
+        <Button
+          type="button"
+          size="sm"
+          color="warning"
+          onClick={handleDelete(product.id)}
+        >
           Delete
         </Button>
       </div>

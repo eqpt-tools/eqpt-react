@@ -1,8 +1,8 @@
 import { app, ipcMain } from 'electron';
 import serve from 'electron-serve';
-import { read, write } from '@local/data/schemas/settings';
-import { createWindow } from './helpers';
+import { read } from '@local/data/schemas/settings';
 import server from '@local/server';
+import { createWindow } from './helpers';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 

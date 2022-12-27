@@ -6,7 +6,7 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  ignorePatterns: ['packages/**/dist', 'packages/**/app'],
+  ignorePatterns: ['packages/app/app', 'node_modules'],
   extends: [
     'next',
     'plugin:react/recommended',

@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Product } from '@local/graphql';
+import { Product } from '@local/data/schemas/products';
 import AppLayout from '../layouts/App';
 import AddVariant from '../forms/variants/AddVariant';
 import { VariantContext } from '../context/VariantContext';
