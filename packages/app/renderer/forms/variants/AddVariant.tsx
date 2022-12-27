@@ -1,19 +1,15 @@
 import React, { useCallback } from 'react';
 import * as Yup from 'yup';
 import { Field, Formik, Form } from 'formik';
-import {
-  useAddProduct,
-  MutationAddProductArgs,
-  useQueryClient,
-} from '@local/graphql';
 import { faMagnifyingGlass } from '@fortawesome/pro-solid-svg-icons/faMagnifyingGlass';
 import Input from '../../components/shared/forms/Input';
 import Button from '../../components/shared/Button';
 import { alertFailure, alertSuccess } from '../../helpers/toast';
 import ErrorLabel from '../../components/shared/forms/ErrorLabel';
 import useVariantContext from '../../context/VariantContext';
+import { trpc } from '../../helpers/trpc';
 
-const initialValues: MutationAddProductArgs = {
+const initialValues = {
   url: '',
 };
 
@@ -24,23 +20,24 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function AddVariant() {
-  const queryClient = useQueryClient();
+  const trpcContext = trpc.useContext();
   const { setProduct } = useVariantContext();
 
-  const { mutateAsync: addProduct, isLoading } = useAddProduct({
-    onSuccess: (response) => {
-      setProduct(response.addProduct);
-      alertSuccess(`Success. Saved ${response.addProduct.title}`);
+  const { mutateAsync: addProduct, isLoading } =
+    trpc.products.create.useMutation({
+      onSuccess: (response) => {
+        setProduct(response);
+        alertSuccess(`Success. Saved ${response.title}`);
 
-      queryClient.invalidateQueries(['FetchProducts']);
-    },
-    onError: () => {
-      alertFailure('Error fetching variant.');
-    },
-  });
+        trpcContext.products.list.invalidate();
+      },
+      onError: () => {
+        alertFailure('Error fetching variant.');
+      },
+    });
 
   const handleSubmit = useCallback(
-    (values: MutationAddProductArgs) => addProduct(values),
+    (values: typeof initialValues) => addProduct(values),
     [addProduct],
   );
 

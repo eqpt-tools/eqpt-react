@@ -14,7 +14,4 @@ module.exports = {
     domains: ['cnrstvns.dev', 'cdn.shopify.com'],
     unoptimized: true,
   },
-  experimental: {
-    transpilePackages: ['@local/graphql'],
-  },
 };

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 
 interface UsePortReturnType {
-  data: string;
+  data: string | null;
   loading: boolean;
 }
 
@@ -19,7 +19,7 @@ export default function usePort(): UsePortReturnType {
 
       setPort(receivedPort);
       setLoading(false);
-      process.env.NEXT_PUBLIC_GRAPHQL_PORT = receivedPort;
+      process.env.NEXT_PUBLIC_TRPC_PORT = receivedPort;
     }
 
     getPort();

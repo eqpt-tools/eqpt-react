@@ -1,5 +1,9 @@
 import fs from 'fs-extra';
 
+interface Schema {
+  parse: (data: object) => unknown;
+}
+
 // The directory name in which we store our application data based on our environment
 const appName =
   process.env.NODE_ENV === 'production'
@@ -47,7 +51,7 @@ export function readFile<T extends object>({
 }: {
   fileName: string;
   defaultData: object;
-  schema: { isValidSync: (data: object) => boolean };
+  schema: Schema;
 }) {
   return async function innerReadFile() {
     const filePath = getPath(fileName);
@@ -60,10 +64,8 @@ export function readFile<T extends object>({
 
     try {
       const jsonData = JSON.parse(fileData) as T;
-      const isValid = schema.isValidSync(jsonData);
 
-      // If schema does not pass validation, restore default data
-      if (!isValid) return restoreDefaults<T>(fileName, defaultData);
+      schema.parse(jsonData);
 
       return jsonData;
     } catch (err) {
