@@ -15,11 +15,7 @@ if (isProd) {
 
 (async () => {
   // Listen for TRPC requests
-  const port = getPort();
-  await write({
-    ...(await read()),
-    port: port.toString(),
-  });
+  const port = await getPort();
 
   server.listen(port);
 
