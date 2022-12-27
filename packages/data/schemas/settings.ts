@@ -1,8 +1,13 @@
 import * as yup from 'yup';
-import { Settings } from '@local/graphql/dist';
 import { readFile, writeFile } from '../helpers';
 
 const fileName = 'settings.json';
+
+export interface Settings {
+  discordWebhook?: string;
+  licenseKey?: string;
+  port?: string;
+}
 
 const defaultData: Settings = {
   discordWebhook: null,

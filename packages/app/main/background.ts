@@ -2,7 +2,7 @@ import { app, ipcMain } from 'electron';
 import serve from 'electron-serve';
 import { read } from '@local/data/schemas/settings';
 import { createWindow } from './helpers';
-import graphql from './graphql';
+import server from '@local/server';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
 
@@ -13,8 +13,8 @@ if (isProd) {
 }
 
 (async () => {
-  // Listen for graphql requests
-  graphql.listen();
+  // Listen for TRPC requests
+  server.listen();
 
   await app.whenReady();
 

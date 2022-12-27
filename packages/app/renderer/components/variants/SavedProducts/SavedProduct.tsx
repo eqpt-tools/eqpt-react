@@ -1,10 +1,10 @@
-import { Product } from '@local/graphql';
 import React, { useCallback } from 'react';
 import Image from 'next/image';
 import pluralize from 'pluralize';
 import Text from '../../shared/Text';
 import useVariantContext from '../../../context/VariantContext';
 import Button from '../../shared/Button';
+import { Product } from '@local/data/schemas/products';
 
 interface Props {
   product: Product;

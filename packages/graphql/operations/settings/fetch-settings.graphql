@@ -1,6 +1,0 @@
-query FetchSettings {
-  settings {
-    discordWebhook
-    licenseKey
-  }
-}

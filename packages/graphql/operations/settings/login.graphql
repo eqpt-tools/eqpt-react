@@ -1,5 +1,0 @@
-mutation Login($licenseKey: String!) {
-  login(licenseKey: $licenseKey) {
-    licenseKey
-  }
-}

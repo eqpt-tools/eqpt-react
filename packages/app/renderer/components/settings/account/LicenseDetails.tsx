@@ -1,24 +1,24 @@
 import { faEye } from '@fortawesome/pro-solid-svg-icons/faEye';
 import { faCopy } from '@fortawesome/pro-solid-svg-icons/faCopy';
 import React, { useCallback, useMemo, useState } from 'react';
-import { useFetchSettings } from '@local/graphql';
 import { faCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
 import Button from '../../shared/Button';
 import Text from '../../shared/Text';
 import useCopy from '../../../hooks/useCopy';
+import { trpc } from '../../../helpers/trpc';
 
 export default function LicenseDetails() {
   const [visible, setVisible] = useState(false);
-  const { data } = useFetchSettings();
-  const { copy, copied } = useCopy(data?.settings?.licenseKey);
+  const { data } = trpc.settings.retrieve.useQuery();
+  const { copy, copied } = useCopy(data?.licenseKey);
 
   const key = useMemo(() => {
-    if (!data?.settings?.licenseKey) return '';
+    if (!data?.licenseKey) return '';
 
-    if (visible) return data.settings.licenseKey;
+    if (visible) return data.licenseKey;
 
-    return `•••• •••• •••• ${data.settings.licenseKey.substring(
-      data.settings.licenseKey.length - 4,
+    return `•••• •••• •••• ${data.licenseKey.substring(
+      data.licenseKey.length - 4,
     )}`;
   }, [data, visible]);
 

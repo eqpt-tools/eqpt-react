@@ -1,8 +1,22 @@
 import * as yup from 'yup';
-import { Product } from '@local/graphql/dist';
 import { readFile, writeFile } from '../helpers';
 
 const fileName = 'variants.json';
+
+export interface ProductVariant {
+  id: string;
+  stock?: number;
+  title: string;
+}
+
+export interface Product {
+  id: string;
+  image?: string;
+  store: string;
+  title: string;
+  url: string;
+  variants: Array<ProductVariant>;
+}
 
 const defaultData: Product[] = [];
 

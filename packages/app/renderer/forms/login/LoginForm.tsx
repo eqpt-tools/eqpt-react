@@ -3,12 +3,12 @@ import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { faSignInAlt } from '@fortawesome/pro-solid-svg-icons/faSignInAlt';
 import { useRouter } from 'next/router';
-import { useLogin, MutationLoginArgs } from '@local/graphql';
 import Input from '../../components/shared/Input';
 import Button from '../../components/shared/Button';
 import { alertFailure, alertSuccess } from '../../helpers/toast';
+import { trpc } from '../../helpers/trpc';
 
-const initialValues: MutationLoginArgs = {
+const initialValues = {
   licenseKey: '',
 };
 
@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
 export default function LoginForm() {
   const router = useRouter();
 
-  const { mutateAsync: login } = useLogin({
+  const { mutateAsync: login } = trpc.settings.login.useMutation({
     onSuccess: () => {
       // TODO: This should say: Welcome back, {user.username}
       alertSuccess('Success. Logging you in...');
@@ -31,7 +31,9 @@ export default function LoginForm() {
   });
 
   const handleSubmit = useCallback(
-    (values: MutationLoginArgs) => login(values),
+    (values: typeof initialValues) => {
+      login({ licenseKey: values.licenseKey });
+    },
     [login],
   );
 

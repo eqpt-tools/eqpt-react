@@ -1,6 +1,6 @@
-import { Product } from '@local/graphql';
+import { Product } from '@local/data/schemas/products';
 import axios from 'axios';
-import { randomUUID } from 'crypto';
+import { nanoid } from 'nanoid';
 
 interface ShopifyVariant {
   id: number;
@@ -48,11 +48,11 @@ export const retrieveProduct = async function retrieveProduct(
       .then((response) => response.data as ShopifyStore);
 
     return {
-      id: randomUUID(),
+      id: nanoid(),
       store: storeData.name,
       url,
       title: productData.title,
-      image: productData.image.src,
+      image: productData.image?.src,
       variants: productData.variants.map((v) => ({
         id: v.id.toString(),
         title: v.title,
