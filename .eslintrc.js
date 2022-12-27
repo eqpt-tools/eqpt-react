@@ -6,7 +6,11 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  ignorePatterns: ['packages/graphql/**', 'packages/**/dist'],
+  ignorePatterns: [
+    'packages/graphql/**',
+    'packages/**/dist',
+    'packages/**/app',
+  ],
   extends: [
     'next',
     'plugin:react/recommended',

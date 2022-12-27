@@ -17,5 +17,10 @@
     "types": ["node"],
     "outDir": "dist"
   },
-  "exclude": ["node_modules", "packages/app/renderer/next.config.js", "dist"]
+  "exclude": [
+    "node_modules",
+    "packages/app/renderer/next.config.js",
+    "dist",
+    "app"
+  ]
 }
