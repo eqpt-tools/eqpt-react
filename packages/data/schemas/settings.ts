@@ -1,12 +1,12 @@
-import * as yup from 'yup';
+import z from 'zod';
 import { readFile, writeFile } from '../helpers';
 
 const fileName = 'settings.json';
 
 export interface Settings {
-  discordWebhook?: string;
-  licenseKey?: string;
-  port?: string;
+  discordWebhook: string | null;
+  licenseKey: string | null;
+  port: string | null;
 }
 
 const defaultData: Settings = {
@@ -15,10 +15,10 @@ const defaultData: Settings = {
   port: null,
 };
 
-const schema = yup.object().shape({
-  discordWebhook: yup.string().nullable(),
-  licenseKey: yup.string().nullable(),
-  port: yup.string().nullable(),
+const schema = z.object({
+  discordWebhook: z.string().nullable(),
+  licenseKey: z.string().nullable(),
+  port: z.string().nullable(),
 });
 
 const read = readFile<Settings>({ fileName, defaultData, schema });

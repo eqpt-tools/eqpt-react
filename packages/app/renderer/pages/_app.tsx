@@ -13,6 +13,8 @@ function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   const trpcClient = useTRPCClient();
 
+  if (!trpcClient) return null;
+
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
