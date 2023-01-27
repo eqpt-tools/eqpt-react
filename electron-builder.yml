@@ -1,6 +1,6 @@
 appId: io.eqpt.desktop
 productName: EQPT Tools
-copyright: Copyright © 2022 Connor Stevens
+copyright: 
 directories:
   output: dist
   buildResources: resources

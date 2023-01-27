@@ -3,13 +3,13 @@ import { Product } from '@local/data/schemas/products';
 import AppLayout from '../layouts/App';
 import AddVariant from '../forms/variants/AddVariant';
 import { VariantContext } from '../context/VariantContext';
-import ActiveProduct from '../components/variants/ActiveProduct';
-import SavedProducts from '../components/variants/SavedProducts';
-import ActiveVariants from '../components/variants/ActiveProduct/ActiveVariants';
+import ActiveProduct from '../components/products/ActiveProduct';
+import SavedProducts from '../components/products/SavedProducts';
+import ActiveVariants from '../components/products/ActiveProduct/ActiveVariants';
 import { BulkSelectContext } from '../context/BulkSelectContext';
 import useSelect from '../hooks/useSelect';
 
-export default function Variants() {
+export default function Products() {
   const selectValue = useSelect();
   const [product, setProduct] = useState<Product | null>(null);
 

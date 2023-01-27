@@ -6,7 +6,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import Icon from '../shared/Icon';
 
 interface ChildItemProps {
-  route?: string;
+  route: string;
   title: string;
 }
 
@@ -66,7 +66,7 @@ export default function NavItem({
             'mb-1': !!childItems,
           },
         )}
-        {...(!childItems && { href: route })}
+        href={route as string}
       >
         <div className="h-6 w-6">
           <Icon

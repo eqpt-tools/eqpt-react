@@ -12,6 +12,16 @@
     "dev": "nextron",
     "build": "nextron build"
   },
+  "build": {
+    "appId": "io.eqpt.desktop",
+    "productName": "EQPT Tools",
+    "copyright": "Copyright © 2022 Connor Stevens",
+    "directories": {
+      "output": "dist"
+    },
+    "afterPack": "./build/afterPack.js",
+    "publish": null
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",

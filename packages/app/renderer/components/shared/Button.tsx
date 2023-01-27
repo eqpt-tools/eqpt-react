@@ -65,6 +65,9 @@ export default function Button({
         {
           '!cursor-not-allowed': disabled,
         },
+        {
+          '!px-2': !children && !!icon,
+        },
       )}
       {...props}
     >

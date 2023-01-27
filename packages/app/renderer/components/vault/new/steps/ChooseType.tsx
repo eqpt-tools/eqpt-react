@@ -5,7 +5,7 @@ import { faComputer } from '@fortawesome/pro-solid-svg-icons/faComputer';
 import Modal from '../../../shared/Modal';
 import Button from '../../../shared/Button';
 import RadioGroup from '../../../shared/RadioGroup';
-import useNewEntryContext from '../NewEntryContext';
+import useCreateVaultStore from '../../../../stores/useCreateVaultStore';
 
 const types = [
   {
@@ -27,7 +27,11 @@ const types = [
 
 export default function ChooseType() {
   const [value, setValue] = useState('Software');
-  const { setStep, setType, handleClose } = useNewEntryContext();
+  const { setStep, setType, setOpen } = useCreateVaultStore();
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
 
   const handleSubmit = useCallback(() => {
     setType(value);

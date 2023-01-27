@@ -13,7 +13,7 @@ import Checkbox from './Checkbox';
 import useBulkSelectContext from '../../context/BulkSelectContext';
 
 interface Props<T extends object> {
-  columns: ColumnDef<T, unknown>[];
+  columns: ColumnDef<T, any>[];
   data: T[];
   selectable?: boolean;
 }
@@ -105,26 +105,36 @@ export default function Table<T extends object>({
         ))}
       </thead>
       <tbody>
-        {table.getRowModel().rows.map((row) => (
-          <tr key={row.id} className="bg-[#181921]">
-            {row.getVisibleCells().map((cell, index) => {
-              const isFirst = index === 0;
-              const isLast = index === row.getAllCells().length - 1;
+        {table.getRowModel().rows.map((row) => {
+          const isSelected = row.getIsSelected();
 
-              return (
-                <td
-                  className={clsx('py-2 px-6 border border-transparent', {
-                    'rounded-l': isFirst,
-                    'rounded-r': isLast,
-                    'text-opacity-80 text-white font-medium': !isLast,
-                  })}
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              );
-            })}
-          </tr>
-        ))}
+          return (
+            <tr
+              key={row.id}
+              className={clsx('transition-all duration-200', {
+                'bg-[#181921]': !isSelected,
+                'bg-[#24252E]': isSelected,
+              })}
+            >
+              {row.getVisibleCells().map((cell, index) => {
+                const isFirst = index === 0;
+                const isLast = index === row.getAllCells().length - 1;
+
+                return (
+                  <td
+                    className={clsx('py-2 px-6 border border-transparent', {
+                      'rounded-l': isFirst,
+                      'rounded-r': isLast,
+                      'text-opacity-80 text-white font-medium': !isLast,
+                    })}
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                );
+              })}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

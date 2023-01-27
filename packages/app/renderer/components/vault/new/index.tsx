@@ -1,37 +1,16 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React from 'react';
+import useCreateVaultStore from '../../../stores/useCreateVaultStore';
 import Modal from '../../shared/Modal';
-import { NewEntryContext, Step } from './NewEntryContext';
 import ChooseType from './steps/ChooseType';
+import InputData from './steps/InputData';
 
-interface Props {
-  open: boolean;
-  onClose: (open: boolean) => void;
-}
-
-export default function New({ open, onClose }: Props) {
-  const [step, setStep] = useState<Step>(0);
-  const [type, setType] = useState('Software');
-
-  const handleClose = useCallback(() => {
-    onClose(false);
-  }, [onClose]);
-
-  const value = useMemo(
-    () => ({
-      step,
-      setStep,
-      type,
-      setType,
-      handleClose,
-    }),
-    [handleClose, step, type],
-  );
+export default function New() {
+  const { step, open, setOpen } = useCreateVaultStore();
 
   return (
-    <NewEntryContext.Provider value={value}>
-      <Modal open={open} onClose={onClose}>
-        {step === 0 && <ChooseType />}
-      </Modal>
-    </NewEntryContext.Provider>
+    <Modal open={open} onClose={setOpen}>
+      {step === 0 && <ChooseType />}
+      {step === 1 && <InputData />}
+    </Modal>
   );
 }

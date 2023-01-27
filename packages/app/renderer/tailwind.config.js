@@ -16,7 +16,11 @@ module.exports = {
       transparent: colors.transparent,
       black: colors.black,
     },
-    extend: {},
+    extend: {
+      transitionProperty: {
+        height: 'height',
+      },
+    },
   },
   fontFamily: {
     sans: ['system-ui', 'sans-serif'],

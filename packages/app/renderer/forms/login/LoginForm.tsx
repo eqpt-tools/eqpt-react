@@ -54,7 +54,7 @@ export default function LoginForm() {
               size="md"
             />
             <Button
-              className="rounded-md rounded-l-none"
+              className="rounded-md rounded-l-none !px-4"
               color="primary"
               size="md"
               type="submit"

@@ -63,7 +63,7 @@ export function readFile<T extends object>({
     const fileData = fs.readFileSync(filePath, { encoding: 'utf-8' });
 
     try {
-      const jsonData = JSON.parse(fileData) as T;
+      const jsonData = JSON.parse(fileData);
 
       schema.parse(jsonData);
 

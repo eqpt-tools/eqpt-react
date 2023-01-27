@@ -7,7 +7,6 @@ export interface Props {
   placeholder?: string;
   copyable?: boolean;
   readOnly?: boolean;
-  dark?: boolean;
   className?: string;
 }
 

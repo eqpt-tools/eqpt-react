@@ -36,11 +36,11 @@ export default function Select({
       <div className="relative">
         <Listbox.Button
           className={clsx(
-            'relative w-full rounded-lg bg-[#22242D] py-3 pl-5 pr-10 text-left focus:outline-none',
+            'relative w-full rounded-md bg-[#22242D] py-3 pl-5 pr-10 text-left focus:outline-none',
             className,
           )}
         >
-          <Text size="sm" opacity={60} weight="semibold" truncate>
+          <Text size="sm" opacity={60} weight="medium" truncate>
             {selectedValue?.label || 'Select an option...'}
           </Text>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-5">
@@ -54,7 +54,7 @@ export default function Select({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-[#22242D] py-1 text-base shadow-lg focus:outline-none">
+          <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-[#22242D] py-1 text-base shadow-lg focus:outline-none">
             {options.map((option) => (
               <Listbox.Option
                 key={option.value}

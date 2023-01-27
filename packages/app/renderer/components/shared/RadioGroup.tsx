@@ -28,7 +28,7 @@ export default function RadioGroup({ name, options, value, onChange }: Props) {
               value={option.name}
               className={({ checked }) =>
                 clsx(
-                  'relative flex cursor-pointer rounded-md px-5 py-4 shadow-md focus:outline-none bg-[#22242D] border-2',
+                  'relative flex cursor-pointer rounded-md px-5 py-4 shadow-md focus:outline-none bg-[#22242D] border-2 transition',
                   {
                     'bg-sky-900 bg-opacity-75 text-white border-indigo-500':
                       checked,

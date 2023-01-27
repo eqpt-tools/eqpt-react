@@ -8,6 +8,7 @@ const isProd: boolean = process.env.NODE_ENV === 'production';
 
 if (isProd) {
   serve({ directory: 'app' });
+  app.applicationMenu = null;
 } else {
   app.setPath('userData', `${app.getPath('userData')} (development)`);
 }
@@ -26,6 +27,7 @@ if (isProd) {
     center: true,
     resizable: !isProd,
     frame: false,
+    devTools: !isProd,
   });
 
   if (isProd) {

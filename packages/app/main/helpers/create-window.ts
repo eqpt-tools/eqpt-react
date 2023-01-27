@@ -2,6 +2,7 @@ import {
   screen,
   BrowserWindow,
   BrowserWindowConstructorOptions,
+  WebPreferences,
 } from 'electron';
 import Store from 'electron-store';
 
@@ -13,7 +14,7 @@ import Store from 'electron-store';
  */
 export default function createWindow(
   windowName: string,
-  options: BrowserWindowConstructorOptions,
+  options: BrowserWindowConstructorOptions & WebPreferences,
 ): BrowserWindow {
   const key = 'window-state';
   const name = `window-state-${windowName}`;
