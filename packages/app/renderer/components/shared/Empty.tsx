@@ -11,7 +11,7 @@ interface Props {
 
 export default function Empty({ title, subtitle, icon }: Props) {
   return (
-    <div className="w-full rounded-md border-2 border-[#2E2F3A] min-h-[12rem] flex items-center justify-center">
+    <div className="w-full rounded-md border-2 border-[#2E2F3A] min-h-[12rem] flex items-center justify-center bg-[#1b1a20]">
       <div className="flex space-x-4">
         <div className="w-12 h-12 rounded-md flex items-center justify-center bg-gray-800 text-white">
           <Icon icon={icon} size="lg" />
