@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 
-interface Schema {
-  parse: (data: object) => unknown;
+interface Schema<T> {
+  parse: (data: T) => true | Error;
 }
 
 // The directory name in which we store our application data based on our environment
@@ -24,7 +24,6 @@ const checkPath = async <T>(fileName: string, data: T) => {
   const filePath = getPath(fileName);
 
   const exists = await fs.pathExists(filePath);
-
   if (exists) return;
 
   await fs.ensureDir(basePath);
@@ -51,7 +50,7 @@ export function readFile<T>({
 }: {
   fileName: string;
   defaultData: T;
-  schema: Schema;
+  schema: Schema<T>;
 }) {
   return async function innerReadFile() {
     const filePath = getPath(fileName);
@@ -60,11 +59,14 @@ export function readFile<T>({
     // If not, create the file and store the default data
     await checkPath(fileName, defaultData);
 
+    // Read the data from the file
     const fileData = fs.readFileSync(filePath, { encoding: 'utf-8' });
 
     try {
+      // Parse the data from the file using the node JSON module
       const jsonData = JSON.parse(fileData);
 
+      // Use the zod schema's parse method to validate the data
       schema.parse(jsonData);
 
       // Safely cast as T if parsing succeeds
