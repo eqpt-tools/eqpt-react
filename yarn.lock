@@ -5159,7 +5159,7 @@ next@^13.0.7:
     "@next/swc-win32-ia32-msvc" "13.1.5"
     "@next/swc-win32-x64-msvc" "13.1.5"
 
-nextron@^8.2.0:
+nextron@^8.5.0:
   version "8.5.0"
   resolved "https://registry.yarnpkg.com/nextron/-/nextron-8.5.0.tgz#27d20462856a0bbd684572722e76e423d3bc8e4e"
   integrity sha512-48GCXVtmPPoQTvVhGLkdgQ/bQhergszctcIz0uCKE7AaLbglRukLsbtTV708N0NcDA9FRbQ/YCcgybCAucoCFQ==

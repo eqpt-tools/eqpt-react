@@ -20,7 +20,7 @@ const basePath =
 const getPath = (fileName: string) => basePath + fileName;
 
 // A helper function that checks whether a file exists, if not, it writes the schema's default data
-const checkPath = async (fileName: string, data: object) => {
+const checkPath = async <T>(fileName: string, data: T) => {
   const filePath = getPath(fileName);
 
   const exists = await fs.pathExists(filePath);
@@ -34,23 +34,23 @@ const checkPath = async (fileName: string, data: object) => {
 // A helper function that checks whether a file exists, if not, it writes the schema's default data
 const restoreDefaults = async function restoreDefaults<T>(
   fileName: string,
-  data: object,
+  data: T,
 ) {
   const filePath = getPath(fileName);
 
   await fs.writeFile(filePath, JSON.stringify(data, null, 2));
 
-  return data as T;
+  return data;
 };
 
 // A helper function that returns a function that reads data for a schema
-export function readFile<T extends object>({
+export function readFile<T>({
   fileName,
   defaultData,
   schema,
 }: {
   fileName: string;
-  defaultData: object;
+  defaultData: T;
   schema: Schema;
 }) {
   return async function innerReadFile() {
@@ -67,7 +67,8 @@ export function readFile<T extends object>({
 
       schema.parse(jsonData);
 
-      return jsonData;
+      // Safely cast as T if parsing succeeds
+      return jsonData as T;
     } catch (err) {
       // If an error occurred while parsing JSON, restore default data
       return restoreDefaults<T>(fileName, defaultData);

@@ -9,7 +9,7 @@
   },
   "description": "The EQPT tools desktop application.",
   "scripts": {
-    "dev": "nextron",
+    "dev": "nextron --startup-delay=3000",
     "build": "nextron build"
   },
   "build": {
@@ -56,7 +56,7 @@
     "electron-builder": "^23.3.3",
     "javascript-obfuscator": "^4.0.0",
     "next": "^13.0.7",
-    "nextron": "^8.2.0",
+    "nextron": "^8.5.0",
     "postcss": "^8.4.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
