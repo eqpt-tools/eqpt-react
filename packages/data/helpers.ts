@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 
 interface Schema<T> {
-  parse: (data: T) => true | Error;
+  parse: (data: T) => unknown;
 }
 
 // The directory name in which we store our application data based on our environment
